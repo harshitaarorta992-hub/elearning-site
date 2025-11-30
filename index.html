@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub - Your E-Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .course-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .course-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .enroll-btn {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .enroll-btn:hover {
+            background: #764ba2;
+        }
+        
+        .features {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🎓 LearnHub</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Learn Anything, Anytime, Anywhere</h1>
+        <p>Unlock your potential with thousands of courses taught by expert instructors</p>
+        <button class="cta-button">Start Learning Today</button>
+    </section>
+
+    <div class="container" id="courses">
+        <h2 class="section-title">Popular Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-image">💻</div>
+                <div class="course-content">
+                    <h3 class="course-title">Web Development Bootcamp</h3>
+                    <p class="course-description">Master HTML, CSS, JavaScript, and modern frameworks to build stunning websites.</p>
+                    <div class="course-meta">
+                        <span class="course-price">$49.99</span>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">🎨</div>
+                <div class="course-content">
+                    <h3 class="course-title">Graphic Design Masterclass</h3>
+                    <p class="course-description">Learn design principles, Adobe tools, and create professional graphics.</p>
+                    <div class="course-meta">
+                        <span class="course-price">$39.99</span>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">📊</div>
+                <div class="course-content">
+                    <h3 class="course-title">Data Science & Analytics</h3>
+                    <p class="course-description">Dive into Python, statistics, machine learning, and data visualization.</p>
+                    <div class="course-meta">
+                        <span class="course-price">$59.99</span>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">📱</div>
+                <div class="course-content">
+                    <h3 class="course-title">Mobile App Development</h3>
+                    <p class="course-description">Build iOS and Android apps with React Native and Flutter.</p>
+                    <div class="course-meta">
+                        <span class="course-price">$54.99</span>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">🎬</div>
+                <div class="course-content">
+                    <h3 class="course-title">Video Editing Pro</h3>
+                    <p class="course-description">Master video editing with Adobe Premiere Pro and Final Cut Pro.</p>
+                    <div class="course-meta">
+                        <span class="course-price">$44.99</span>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-image">🚀</div>
+                <div class="course-content">
+                    <h3 class="course-title">Digital Marketing</h3>
+                    <p class="course-description">Learn SEO, social media marketing, and grow your online presence.</p>
+                    <div class="course-meta">
+                        <span class="course-price">$34.99</span>
+                        <button class="enroll-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose LearnHub?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Expert Instructors</h3>
+                <p>Learn from industry professionals with years of experience</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3 class="feature-title">Learn at Your Pace</h3>
+                <p>Access courses anytime, anywhere, on any device</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">Certificates</h3>
+                <p>Earn recognized certificates upon course completion</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">Community Support</h3>
+                <p>Join a vibrant community of learners and mentors</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 LearnHub - Your E-Learning Platform. All rights reserved.</p>
+        <p>Contact: info@learnhub.com | +1 (555) 123-4567</p>
+    </footer>
+</body>
+</html>
